@@ -1,0 +1,135 @@
+/* Background Image */
+.page-container {
+    background: url("https://via.placeholder.com/1500x800") no-repeat center center/cover;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: auto; /* Move links to left */
+  }
+  
+  .nav-links li {
+    cursor: pointer;
+    font-weight: 600;
+    color: #f2eaea;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-links li:hover {
+    color: #ebe7e2;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  
+  /* Product Section */
+  .product-section {
+    text-align: center;
+    margin-top: 100px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Title */
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .underline {
+    width: 100px;
+    height: 3px;
+    background: #9b6215;
+    margin: 0 auto 20px;
+  }
+  
+  /* Product Grid */
+  .product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  /* Product Card */
+  .product-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 220px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .product-name {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .product-price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: grey;
+    margin-left: 5px;
+  }
+  .login-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .login-button {
+    background-color: #9b6215;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .login-button:hover {
+    background-color: #814f12;
+  }
+  
+  .down-arrow {
+    font-size: 24px;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  

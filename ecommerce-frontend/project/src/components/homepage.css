@@ -1,0 +1,133 @@
+/* Homepage container */
+.homepage {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Left section - Shoppy */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f7f5f2;
+}
+
+/* Center section - Categories */
+.navbar-center {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-grow: 1; /* Allows it to expand and take center */
+}
+
+.menu-item {
+  position: relative;
+  cursor: pointer;
+  color: gray;
+  font-size: 25px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.menu-item:hover {
+  color: #9b6215;
+}
+
+.active {
+  color: #9b6215;
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: -20px; /* Move it below the text */
+  width: 140%; /* Full width */
+  height: 5px;
+  background-color: #9b6215;
+  animation: slide-in 0.3s forwards;
+}
+
+
+@keyframes slide-in {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Right section - Login Button */
+.login-button {
+  background-color: #814e11;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 200;
+  transition: background-color 0.3s;
+  width: 120px;
+}
+
+.login-button:hover {
+  background-color: #9b6215;
+}
+
+/* Background Image Section */
+.background-section {
+  background-size: cover;
+  background-position: center;
+  height: calc(120vh - 70px); /* Adjust based on navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+.text-container {
+  color: #9b6215;
+  max-width: 400px;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.try-button {
+  background-color: #9b6215;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.try-button:hover {
+  background-color: #814e11;
+}
