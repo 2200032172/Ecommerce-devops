@@ -8,7 +8,7 @@ import com.example.backend.repository.UserRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/")
 @CrossOrigin(origins = "http://localhost:3000") // Allow frontend requests
 public class UserController {
 
