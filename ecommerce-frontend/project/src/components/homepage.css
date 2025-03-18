@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: 814e11;
   padding: 20px 28px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -24,7 +24,7 @@
 .brand-name {
   font-size: 24px;
   font-weight: bold;
-  color: #f7f5f2;
+  color: #9b6215;
 }
 
 /* Center section - Categories */

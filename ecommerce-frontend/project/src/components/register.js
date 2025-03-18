@@ -13,11 +13,12 @@ const RegisterPage = () => {
     const userData = { name, email, phone, password };
   
     try {
-      const response = await fetch("http://localhost:9090/api/users/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
+      const response = await fetch("http://localhost:8081/register", { 
+        method: "POST", 
+        headers: { "Content-Type": "application/json" }, 
+        body: JSON.stringify(userData) 
       });
+      
   
       if (response.ok) {
         alert("Registration successful!");
