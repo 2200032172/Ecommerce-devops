@@ -31,11 +31,13 @@ services:
       MYSQL_ROOT_PASSWORD: Nishita@2004
       MYSQL_DATABASE: ecommerce_db
     ports:
-      - "3307:3306"
+      - "3306:3306"   # Changed from 3307:3306 to avoid conflicts
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       retries: 5
+    volumes:
+      - db_data:/var/lib/mysql   # Attach volume for persistent database storage
 
 volumes:
-  db_data:
+  db_data:   # Ensure volume is correctly configured

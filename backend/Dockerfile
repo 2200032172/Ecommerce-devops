@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Use OpenJDK to run the application
+# Use OpenJDK to run the application (Optimized for smaller size)
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
