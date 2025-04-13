@@ -1,60 +1,122 @@
+/* CSS Variables for Consistent Styling */
+:root {
+  --primary-color: #ffffff; /* White */
+  --secondary-color: #f8f8f8; /* Light Gray */
+  --text-color: #333; /* Dark Gray */
+  --accent-color: #007bff; /* Blue */
+  --serif-font: "Playfair Display", serif;
+  --sans-serif-font: "Poppins", sans-serif;
+}
+
 /* Global Styles */
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #f8f8f8;
-  color: #333;
+  font-family: var(--sans-serif-font);
+  background: var(--secondary-color);
+  color: var(--text-color);
+  overflow-x: hidden;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background: rgba(255, 255, 255, 0.9);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 5;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Utility Classes */
+.container {
+  width: 85%;
+  margin: auto;
 }
 
-.navbar .logo {
-  font-size: 24px;
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
   font-weight: bold;
 }
 
-.nav-links {
-  list-style: none;
+.center {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-main {
+  font-size: 1.5rem;  
+  font-weight: 700;  
+  font-family: var(--serif-font);  
+  text-transform: uppercase;  
+  margin-bottom: -8px;
+}
+
+.logo-sub {
+  font-size: 1.1rem;
+
+  font-style: italic;
+  font-family: var(--serif-font);
+  font-weight: 400;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.customize-button {
+  background: var(--primary-color); /* White */
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor:pointer;
+  display: flex;
+  align-items: center;
 }
 
 .icons {
   display: flex;
   gap: 15px;
-  font-size: 20px;
+  font-size: 23px;
 }
+
+.icons .search-icon,
+.icons .shopping-bag-icon {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.hero{padding-top:7rem}
 
 /* Hero Section */
 .hero {
-  background: url("https://media.istockphoto.com/id/1338958539/photo/portrait-of-blonde-beautiful-woman-in-shopping-mall.jpg?s=612x612&w=0&k=20&c=WyI4G7xK_3uUmUMsTcPXWYq_kMfCEZRmn4yx6HfFpbg=") no-repeat center center/cover;
-  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1515378960530-072de1d8677a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  color: white;
+  align-items: center;
+  color: var(--primary-color); /* White text */
+  position: relative;
+  text-align: center; /* Center text */
+  filter: saturate(80%);
 }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+}
+
 
 .hero-content {
   max-width: 700px;
@@ -69,7 +131,40 @@ body {
   transition: 0.3s;
 }
 
+.hero-small-heading {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: var(--sans-serif-font);
+}
+
+.hero-main-heading {
+  font-size: 3rem;
+  font-family: var(--serif-font);
+  margin-bottom: 20px;
+  font-style: italic;
+
+
+  font-weight: 400;
+
+
+}
+
+.hero-subheading {
+  font-size: 1rem;
+  font-family: var(--sans-serif-font);
+  max-width: 600px;
+  margin-bottom:2rem;
+}
+
 .cta-button:hover {
+  background: #333;
+  color: white;
+}
+.collection-button{
+  padding: 20px 40px;
+  border: 3px solid white;
+  color: white;
   background: #333;
   color: white;
 }
@@ -80,6 +175,7 @@ body {
   padding: 50px 20px;
   text-align: center;
 }
+
 
 .popular-title {
   font-size: 28px;
@@ -166,3 +262,202 @@ body {
 .add-to-cart:hover {
   background: gray;
 }
+.collection-button:hover{
+background-color:blue;
+}
+
+/* Product Slider Styles */
+.product-slider-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping */
+  padding: 20px;
+  position: relative; /* For positioning the scroll arrow */
+}
+
+.product-slider-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.product-slider {
+  display: flex;
+  gap: 25px; /* Spacing between products */
+  margin-bottom: 20px;
+  
+}
+
+.product-card {
+  display: inline-block; /* Keep items in a row */
+  width: 220px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  padding: 10px;
+  
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-description {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.logo-shoppy {
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: var(--serif-font);
+  text-transform: uppercase;
+  color: white;
+}
+
+.logo-wardrobe {
+  font-size: 1.1rem;
+  font-style: italic;
+  font-family: var(--serif-font);
+  font-weight: 400;
+  color: white;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 5px;
+  font-size: 23px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 10rem;
+}
+
+.feature-slider {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.feature-card {
+  min-width: 240px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f0f0f0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  flex: 0 0 auto;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.feature-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.feature-desc {
+  font-size: 0.95rem;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  z-index: 1;
+}
+
+.nav-links.center-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links.center-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align to left */
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.logo-main {
+  font-size: 1.5rem;  
+  font-weight: 700;  
+  font-family: var(--serif-font);  
+  text-transform: uppercase;  
+  margin-bottom: -8px;
+}
+
+.cart-icon-container {
+  position: relative;
+  font-size: 23px;
+  cursor: pointer;
+  color: white;
+}
+
+.cart-badge {
+  background-color: red;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -20px;
+}
+
