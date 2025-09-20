@@ -8,11 +8,11 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy compiled JAR file
+# Copy the JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose backend port
 EXPOSE 8081
 
 # Start the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]

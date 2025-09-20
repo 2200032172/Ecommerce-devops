@@ -7,7 +7,8 @@ import Register from './components/register';
 import Women from './components/women';
 import Dashboard from './components/dashboard';
 import Shop from './components/shop';
-
+import Cart from './components/cart';
+import Checkout from './components/checkout';
 
 const App = () => {
   return (
@@ -18,7 +19,8 @@ const App = () => {
         <Route path="/women" element={<Women />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/shop" element={<Shop />} />
-        
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     
   );

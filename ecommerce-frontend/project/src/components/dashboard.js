@@ -8,7 +8,7 @@ const Dashboard = () => {
   const popularItems = [
     {
       id: 1,
-      img: "https://theweaversshop.com/cdn/shop/files/DSC_4309_1_11zon_533x.jpg?v=1742276657",
+      img: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS24VHf0fI5HwQriRraN6_I2EVrQ3LTAYA3xesZWAqQzE25OiYFs-_zyq7gE8_aaTr51pexv_n7gUlMSA6aw2z9W7AonyjBFIoqh85bp1zmISc3mTjAZzan3g",
       title: "Crepe Salwar and Suit",
       description: "Classic and stylish Salwar and suit for everyday wear.",
       price: "Rs. 8,999.00",
@@ -48,8 +48,8 @@ const Dashboard = () => {
           <ul className="nav-links center-links">
             <li><a href="dashboard">Home</a></li>
             <li><a href="shop">Shop</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact Us</a></li>
           </ul>
           <div className="nav-icons">
             
@@ -68,7 +68,7 @@ const Dashboard = () => {
            <p className="hero-description">
             Effortlessly blend comfort and style with our Casual & Everyday collection, featuring cozy sweaters, versatile denim, laid-back tees, and relaxed-fit joggers for your everyday adventures.
           </p>
-          <button className="hero-button">VIEW COLLECTION</button>
+          <button><a href="shop">VIEW COLLECTION</a> </button>
         </div>
       </header>
 

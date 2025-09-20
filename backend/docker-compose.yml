@@ -8,6 +8,8 @@ services:
       - "3000:80"
     depends_on:
       - backend
+    networks:
+      - ecommerce-network
 
   backend:
     build:
@@ -15,15 +17,17 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/ecommerce_db?autoReconnect=true&useSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db_new:3306/ecommerce_db?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=Nishita@2004
     depends_on:
-      mysql_db:
+      mysql_db_new:   # ✅ fixed name
         condition: service_healthy
     restart: always
+    networks:
+      - ecommerce-network
 
-  mysql_db:
+  mysql_db_new:   # ✅ matches backend host
     image: mysql:8
     container_name: mysql_db_new
     restart: always
@@ -31,13 +35,18 @@ services:
       MYSQL_ROOT_PASSWORD: Nishita@2004
       MYSQL_DATABASE: ecommerce_db
     ports:
-      - "3307:3306"   # Changed from 3307:3306 to avoid conflicts
+      - "3307:3306"  # host:container
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       retries: 5
     volumes:
-      - db_data:/var/lib/mysql   # Attach volume for persistent database storage
+      - ecommerceproject_db_data:/var/lib/mysql
+    networks:
+      - ecommerce-network
 
 volumes:
-  db_data:   # Ensure volume is correctly configured
+  ecommerceproject_db_data:
+
+networks:
+  ecommerce-network:

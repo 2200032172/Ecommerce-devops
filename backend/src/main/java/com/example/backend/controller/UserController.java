@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.backend.model.User;
@@ -16,15 +17,15 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody User user) {
+    public ResponseEntity<String> registerUser(@RequestBody User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            return "User already exists!";
+        	return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists!");
         }
         userRepository.save(user);
-        return "User registered successfully!";
+        return ResponseEntity.ok("User registered successfully!");
     }
 
-    @GetMapping
+    @GetMapping("/users")
     public List<User> getAllUsers() {
         System.out.println("Fetching all users..."); // Debugging log
         return userRepository.findAll();

@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import './shop.css';
 import { FaShoppingBag, FaSearch } from 'react-icons/fa';
+import { useCart } from "../context/cartcontext";
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -9,6 +11,8 @@ const Shop = () => {
   const [sortBy, setSortBy] = useState('default');
   const [modalData, setModalData] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
+  const { addToCart, cartCount } = useCart();
+
 
 
   useEffect(() => {
@@ -16,9 +20,9 @@ const Shop = () => {
       {
         id: 1,
         name: 'Crepe Salwar and Suit',
-        price: 8999,
+        price: 899,
         popularity: 5,
-        img: 'https://theweaversshop.com/cdn/shop/files/DSC_4309_1_11zon_533x.jpg?v=1742276657',
+        img: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS24VHf0fI5HwQriRraN6_I2EVrQ3LTAYA3xesZWAqQzE25OiYFs-_zyq7gE8_aaTr51pexv_n7gUlMSA6aw2z9W7AonyjBFIoqh85bp1zmISc3mTjAZzan3g',
         description: 'Classic and stylish Salwar and suit for everyday wear.',
       },
       {
@@ -104,6 +108,12 @@ const Shop = () => {
       default: return 0;
     }
   });
+   // 🛒 add to cart function
+ const handleAddToCart = (product) => {
+  addToCart({ ...product, size: selectedSize }); // add to global cart
+  setModalData(null); // close modal
+  setSelectedSize(null); // reset size
+};
 
   return (
     <div className="shop-container">
@@ -118,15 +128,15 @@ const Shop = () => {
           <ul className="nav-center">
             <li><a href="dashboard">Home</a></li>
             <li><a href="shop">Shop</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact">Contact Us</a></li>
           </ul>
           <div className="nav-right">
-            <div className="cart-icon-container">
-              <FaShoppingBag className="icon" />
-              <span className="cart-badge">0</span>
-            </div>
-          </div>
+  <Link to="/cart" className="cart-icon-container">
+    <FaShoppingBag className="icon" />
+    <span className="cart-badge">{cartCount}</span> {/* show count from context */}
+  </Link>
+</div>
         </nav>
       </header>
       {/* === NAVBAR END === */}
@@ -182,9 +192,13 @@ const Shop = () => {
   ))}
 </div>
 
-
-
-            <button className="add-to-cart">Add to Cart</button>
+   <button
+              className="add-to-cart"
+              onClick={() => handleAddToCart(modalData)}
+              disabled={!selectedSize}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       )}

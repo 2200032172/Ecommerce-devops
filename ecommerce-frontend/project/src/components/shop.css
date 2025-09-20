@@ -235,6 +235,71 @@
     font-size: 0.75rem;
     font-weight: bold;
   }
+  /* Cart badge */
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: crimson;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px 6px;
+  font-weight: bold;
+}
+
+/* Size buttons */
+.size-options {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.size-square {
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.size-square:hover {
+  background: #eee;
+}
+
+.size-square.active {
+  border: 2px solid #007bff;
+  background: #e6f0ff;
+  font-weight: bold;
+}
+
+/* Add to cart button */
+.add-to-cart {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.add-to-cart:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.add-to-cart:hover:not(:disabled) {
+  background: #0056b3;
+}
+
   
   .nav-right {
     flex: 1;
